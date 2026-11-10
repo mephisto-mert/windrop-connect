@@ -5654,7 +5654,7 @@ async function resolveLiveCloudTunnelUrl() {
 
     if (pairId && /^[a-f0-9]{8,24}$/.test(pairId)) {
       try {
-        const r = await fetchWithTimeout(`https://ntfy.sh/wd_pair_${pairId}/json?poll=1&since=24h&t=${Date.now()}`, 3000);
+        const r = await fetchWithTimeout(`https://ntfy.sh/wd_pair_${pairId}/json?poll=1&since=24h`, 3000);
         if (r.ok) {
           const txt = await r.text();
           const lines = (txt || "").trim().split("\n").reverse().slice(0, 4);
